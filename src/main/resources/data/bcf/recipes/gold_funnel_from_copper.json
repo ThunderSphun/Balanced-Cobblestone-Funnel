@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "funnels",
+  "pattern": [
+    "UUU",
+    "UFU",
+    "UUU"
+  ],
+  "key": {
+    "F": {"item": "bcf:copper_funnel"},
+    "U": {"item": "minecraft:gold_ingot"}
+  },
+  "result": {"item": "bcf:gold_funnel", "count": 1}
+}

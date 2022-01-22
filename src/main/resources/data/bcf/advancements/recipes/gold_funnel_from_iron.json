@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {"recipes": ["bcf:gold_funnel_from_iron"]},
+  "criteria": {
+    "has_funnel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {"items": [{"items": ["bcf:iron_funnel"]}]}
+    },
+    "has_upgrade_material": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {"items": [{"items": ["minecraft:gold_ingot"]}]}
+    },
+    "has_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {"recipe": "bcf:gold_funnel_from_iron"}
+    }
+  }
+}

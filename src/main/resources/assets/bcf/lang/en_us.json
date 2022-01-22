@@ -1,0 +1,23 @@
+{
+  "block.bcf.cobblestone_funnel": "Cobblestone Funnel",
+  "block.bcf.iron_funnel": "Iron Funnel",
+  "block.bcf.copper_funnel": "Copper Funnel",
+  "block.bcf.gold_funnel": "Gold Funnel",
+  "block.bcf.diamond_funnel": "Diamond Funnel",
+  "block.bcf.netherite_funnel": "Netherite Funnel",
+  "block.bcf.simple_funnel": "Simple Funnel",
+  "block.bcf.nether_funnel": "Nether Funnel",
+  "block.bcf.nether_stones_funnel": "Stones From The Nether Funnel",
+  "block.bcf.overworld_stones_funnel": "Stones From The Overworld Funnel",
+  "block.bcf.overworld_surface_funnel": "Soil Funnel",
+  "block.bcf.deepslate_funnel": "Deepslate Funnel",
+
+  "block.bcf.icon": "Tab Icon",
+
+  "itemGroup.bcf.tab": "Balanced Cobblestone Funnels",
+
+  "util.bcf.funnel_output": "Possible blocks that get generated:",
+  "util.bcf.blocks_per_second": "1 block every %f second(s)",
+  "util.bcf.best_block": "best block out: %s",
+  "util.bcf.extra_info": "(press %s and %s to see others!)"
+}

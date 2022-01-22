@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {"recipes": ["bcf:copper_funnel", "bcf:iron_funnel"]},
+  "criteria": {
+    "has_funnel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {"items": [{"items": ["bcf:cobblestone_funnel"]}]}
+    }
+  }
+}

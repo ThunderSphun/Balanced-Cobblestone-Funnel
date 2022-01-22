@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "funnels",
+  "pattern": [
+    "SSS",
+    "SFS",
+    "SSS"
+  ],
+  "key": {
+    "F": {"item": "bcf:cobblestone_funnel"},
+    "S": {"tag": "bcf:stones"}
+  },
+  "result": {"item": "bcf:overworld_stones_funnel", "count": 1}
+}

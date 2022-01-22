@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "funnels",
+  "pattern": [
+    "UUU",
+    "UFU",
+    "UUU"
+  ],
+  "key": {
+    "F": {"item": "bcf:diamond_funnel"},
+    "U": {"item": "minecraft:deepslate"}
+  },
+  "result": {"item": "bcf:deepslate_funnel", "count": 1}
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "funnels",
+  "pattern": [
+    "DSD",
+    "SFS",
+    "DSD"
+  ],
+  "key": {
+    "F": {"item": "bcf:nether_funnel"},
+    "D": {"item": "minecraft:blackstone"},
+    "S": {"item": "minecraft:basalt"}
+  },
+  "result": {"item": "bcf:nether_stones_funnel", "count": 1}
+}

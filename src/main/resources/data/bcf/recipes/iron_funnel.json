@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "funnels",
+  "pattern": [
+    "UUU",
+    "UFU",
+    "UUU"
+  ],
+  "key": {
+    "F": {"item": "bcf:cobblestone_funnel"},
+    "U": {"item": "minecraft:iron_ingot"}
+  },
+  "result": {"item": "bcf:iron_funnel", "count": 1}
+}

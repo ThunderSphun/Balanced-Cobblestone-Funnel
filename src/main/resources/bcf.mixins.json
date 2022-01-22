@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.github.thundersphun.bcf.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "ComparatorBlockMixin",
+    "DispenserBlockAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

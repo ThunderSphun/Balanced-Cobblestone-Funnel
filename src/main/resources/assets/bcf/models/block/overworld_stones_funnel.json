@@ -1,0 +1,6 @@
+{
+	"parent": "bcf:block/funnel",
+	"textures": {
+		"block": "minecraft:block/calcite"
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"parent": "minecraft:recipes/root",
+	"rewards": {"recipes": ["bcf:nether_funnel"]},
+	"criteria": {
+		"entered_nether": {
+			"trigger": "minecraft:changed_dimension",
+			"conditions": {"to": "minecraft:the_nether"}
+		}
+	}
+}
