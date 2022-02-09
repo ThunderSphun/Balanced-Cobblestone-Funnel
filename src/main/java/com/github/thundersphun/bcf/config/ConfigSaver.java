@@ -60,7 +60,7 @@ public class ConfigSaver {
 				funnelJson.add("generates", generates);
 
 				// save
-				funnels.add(funnel, funnelJson);
+				funnels.add(funnel.replace("_funnel", ""), funnelJson);
 			});
 
 			// add

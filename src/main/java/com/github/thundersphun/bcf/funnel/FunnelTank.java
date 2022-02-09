@@ -38,8 +38,10 @@ public class FunnelTank {
 	}
 
 	public void use() {
-		this.uses--;
-		this.clamp();
+		if (this.maxUses != -1) {
+			this.uses--;
+			this.clamp();
+		}
 	}
 
 	public void clamp() {
