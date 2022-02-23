@@ -28,8 +28,8 @@ public class FunnelTank {
 	}
 
 	public float fillAmount() {
-		return this.uses == -1 ? 0 :
-				this.maxUses == -1 ? 1 : (float) this.uses / this.maxUses;
+		return this.maxUses == -1 ? 1 :
+				this.uses == -1 ? 0 : (float) this.uses / this.maxUses;
 	}
 
 	public void fill() {
