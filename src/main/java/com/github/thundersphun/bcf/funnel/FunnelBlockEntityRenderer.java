@@ -17,6 +17,8 @@ import net.minecraft.client.texture.Sprite;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.registry.BuiltinRegistries;
+import net.minecraft.world.biome.BiomeKeys;
 
 @Environment(EnvType.CLIENT)
 public class FunnelBlockEntityRenderer implements BlockEntityRenderer<FunnelBlockEntity> {
@@ -43,7 +45,7 @@ public class FunnelBlockEntityRenderer implements BlockEntityRenderer<FunnelBloc
 		}
 
 		if (entity.getWaterFullness() > 0) {
-			var waterColor = world.getBiome(entity.getPos()).getWaterColor();
+			var waterColor = BuiltinRegistries.BIOME.get(BiomeKeys.OCEAN).getWaterColor();
 			var r = (waterColor >> 0x10 & 0xff) / 256f;
 			var g = (waterColor >> 0x8 & 0xff) / 256f;
 			var b = (waterColor & 0xff) / 256f;

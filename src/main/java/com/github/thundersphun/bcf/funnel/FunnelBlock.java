@@ -2,8 +2,10 @@ package com.github.thundersphun.bcf.funnel;
 
 import com.github.thundersphun.bcf.Bcf;
 import com.github.thundersphun.bcf.config.ConfigData;
+import com.google.common.hash.Funnel;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
@@ -30,8 +32,10 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.tick.OrderedTick;
 import org.jetbrains.annotations.Nullable;
 
+import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Random;
 
@@ -90,16 +94,18 @@ public class FunnelBlock extends BlockWithEntity {
 			world.updateComparators(pos, this);
 			if (!world.isClient) {
 				world.playSound(null, pos, SoundEvents.BLOCK_LAVA_EXTINGUISH, SoundCategory.BLOCKS, 1, 1);
-				blockEntity.sync();
+				//blockEntity.sync();
 			}
 		}
-		world.getBlockTickScheduler().schedule(pos, this, this.data.getSpeed());
+		//world.getBlockTickScheduler().schedule(pos, this, this.data.getSpeed());
+		world.getBlockTickScheduler().scheduleTick(new OrderedTick(this, pos, (long)this.data.getSpeed(), 1));
 	}
 
 	@Override
 	public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
 		super.onPlaced(world, pos, state, placer, itemStack);
-		world.getBlockTickScheduler().schedule(pos, this, this.data.getSpeed());
+		//world.getBlockTickScheduler().schedule(pos, this, this.data.getSpeed());
+		world.getBlockTickScheduler().scheduleTick(new OrderedTick(this, pos, this.data.getSpeed(), 1));
 	}
 
 	@Override
@@ -117,9 +123,9 @@ public class FunnelBlock extends BlockWithEntity {
 							.formatted(Formatting.AQUA, Formatting.BOLD))
 					.formatted(Formatting.GRAY));
 			tooltip.add(new TranslatableText("util.bcf.extra_info",
-					new TranslatableText(gameOptions.keySneak.getBoundKeyTranslationKey())
+					new TranslatableText(gameOptions.useKey.getBoundKeyTranslationKey())
 							.formatted(Formatting.AQUA, Formatting.BOLD),
-					new TranslatableText(gameOptions.keyUse.getBoundKeyTranslationKey())
+					new TranslatableText(gameOptions.useKey.getBoundKeyTranslationKey())
 							.formatted(Formatting.AQUA, Formatting.BOLD)
 			).formatted(Formatting.GRAY));
 		}
@@ -181,7 +187,7 @@ public class FunnelBlock extends BlockWithEntity {
 		if (hasFilledFunnel) {
 			world.updateComparators(pos, this);
 			if (!world.isClient) {
-				blockEntity.sync();
+				//blockEntity.sync();
 			}
 
 			player.setStackInHand(hand, ItemUsage.exchangeStack(itemStack, player, replacementStack));

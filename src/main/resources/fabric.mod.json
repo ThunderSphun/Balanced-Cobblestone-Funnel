@@ -6,7 +6,8 @@
   "name": "Balanced Cobblestone Funnels",
   "description": "A mod which adds cobblestone funnels, to act like skyblock cobble generators",
   "authors": [
-	"ThunderSphun"
+	"ThunderSphun",
+    "MSandro"
   ],
 
   "license": "MIT",
@@ -28,7 +29,7 @@
   "depends": {
 	"fabricloader": ">=0.7.4",
 	"fabric": "*",
-	"minecraft": "1.17.x"
+	"minecraft": "1.18.2"
   },
   "suggests": {
 	"flamingo": "*"

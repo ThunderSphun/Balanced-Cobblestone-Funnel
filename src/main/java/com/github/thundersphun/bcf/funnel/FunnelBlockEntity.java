@@ -2,16 +2,20 @@ package com.github.thundersphun.bcf.funnel;
 
 import com.github.thundersphun.bcf.Bcf;
 import com.github.thundersphun.bcf.config.ConfigData;
-import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.Packet;
+import net.minecraft.network.listener.ClientPlayPacketListener;
+import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
-public class FunnelBlockEntity extends BlockEntity implements BlockEntityClientSerializable {
+public class FunnelBlockEntity extends BlockEntity {
 	private FunnelTank lavaTank;
 	private FunnelTank waterTank;
 	private long interactionTime;
@@ -32,18 +36,16 @@ public class FunnelBlockEntity extends BlockEntity implements BlockEntityClientS
 	}
 
 	@Override
-	public NbtCompound writeNbt(NbtCompound nbt) {
+	public void writeNbt(NbtCompound nbt) {
 		super.writeNbt(nbt);
 
 		nbt.putInt("max_uses_lava", this.lavaTank.getMaxUses());
 		nbt.putInt("lava_uses", this.lavaTank.getUses());
 		nbt.putInt("max_uses_water", this.waterTank.getMaxUses());
 		nbt.putInt("water_uses", this.waterTank.getUses());
-
-		return nbt;
 	}
 
-	@Override
+	/*@Override
 	public void fromClientTag(NbtCompound nbt) {
 		this.readNbt(nbt);
 	}
@@ -51,6 +53,17 @@ public class FunnelBlockEntity extends BlockEntity implements BlockEntityClientS
 	@Override
 	public NbtCompound toClientTag(NbtCompound nbt) {
 		return this.writeNbt(nbt);
+	}*/
+
+	@Nullable
+	@Override
+	public Packet<ClientPlayPacketListener> toUpdatePacket() {
+		return BlockEntityUpdateS2CPacket.create(this);
+	}
+
+	@Override
+	public NbtCompound toInitialChunkDataNbt() {
+		return createNbt();
 	}
 
 	public boolean attemptFill(ItemStack item) {
