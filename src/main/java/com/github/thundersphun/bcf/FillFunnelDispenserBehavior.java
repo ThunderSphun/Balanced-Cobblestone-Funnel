@@ -40,7 +40,8 @@ public class FillFunnelDispenserBehavior implements DispenserBehavior {
 				var itemId = Registry.ITEM.getId(stack.getItem());
 				if (ConfigData.LAVA_RESULT.containsKey(itemId) || ConfigData.WATER_RESULT.containsKey(itemId)) {
 					if (funnelBlockEntity.attemptFill(stack)) {
-						funnelBlockEntity.sync();
+						//funnelBlockEntity.sync();
+						funnelBlockEntity.toUpdatePacket();
 						stack.decrement(1);
 						if (stack.isEmpty()) {
 							return new ItemStack(this.output);
